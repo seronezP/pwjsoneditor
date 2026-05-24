@@ -14,9 +14,7 @@ def decode():
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
     print("--- decoder Panzer War ---")
-    input_path = (
-        ""  # In this line, specify the path to the file that çneeds to be decrypted!!!
-    )
+    input_path = "/Users/seronez/trash/py_json_decoder/achievements.json"  # In this line, specify the path to the file that needs to be decrypted!!!
 
     if not os.path.exists(input_path):
         print("error: file not find!")

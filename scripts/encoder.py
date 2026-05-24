@@ -5,7 +5,7 @@ import os
 from Crypto.Cipher import DES
 from Crypto.Util.Padding import pad
 
-# Параметры из кода игры
+# parameters from game
 KEY = b"panzer_w"
 IV = bytes([0x04, 0x02, 0x02, 0x03, 0x05, 0x02, 0x04, 0x04])
 
@@ -14,7 +14,9 @@ def encode():
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
     print("--- ENCODER Panzer War ---")
-    input_path = "/Users/seronez/trash/py_json_decoder/scripts/achievements_decoded.json"  # In this line, specify the path to the file that needs to be encrypted!!!
+    input_path = (
+        ""  # In this line, specify the path to the fileç that needs to be encrypted!!!
+    )
 
     if not os.path.exists(input_path):
         print("error: file not found!")
