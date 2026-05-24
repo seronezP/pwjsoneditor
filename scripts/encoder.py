@@ -13,28 +13,28 @@ IV = bytes([0x04, 0x02, 0x02, 0x03, 0x05, 0x02, 0x04, 0x04])
 def encode():
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
-    print("--- ЭНКОДЕР Panzer War ---")
-    input_path = ""
+    print("--- ENCODER Panzer War ---")
+    input_path = "/Users/seronez/trash/py_json_decoder/scripts/achievements_decoded.json"  # In this line, specify the path to the file that needs to be encrypted!!!
 
     if not os.path.exists(input_path):
-        print("Ошибка: Файл не найден!")
+        print("error: file not found!")
         return
 
     try:
-        # Читаем JSON
+        # reading JSON
         with open(input_path, "r", encoding="utf-8") as f:
             data = json.load(f)
 
-        # Компактная запись (без пробелов), как делает движок Unity
+        # simple write like unity
         json_string = json.dumps(data, separators=(",", ":"), ensure_ascii=False)
         json_bytes = json_string.encode("utf-8")
 
-        # Шифрование DES
+        # encode DES
         cipher = DES.new(KEY, DES.MODE_CBC, IV)
         padded_data = pad(json_bytes, DES.block_size)
         encrypted_bytes = cipher.encrypt(padded_data)
 
-        # Упаковка в Base64
+        # package to Base64
         final_base64 = base64.b64encode(encrypted_bytes)
 
         output_path = os.path.join(script_dir, "achievements.json")
@@ -42,11 +42,11 @@ def encode():
             f.write(final_base64)
 
         print("-" * 30)
-        print(f"ГОТОВО! Зашифрованный файл: {output_path}")
-        print("Можете копировать его обратно в папку игры.")
+        print(f"succesfully! encrypted file: {output_path}")
+        print("Now you can copy this file in to game folder.")
 
     except Exception as e:
-        print(f"ОШИБКА: {e}")
+        print(f"ERROR: {e}")
 
 
 if __name__ == "__main__":

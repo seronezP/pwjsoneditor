@@ -24,3 +24,17 @@ source venv/bin/activate
 ```bash   
 pip install -r requirements.txt 
 ```
+
+## how to use
+
+1. To change a file, you need to specify the path to the file for decryption in the decode.py files, and for reverse encoding, the path to the folder where the file will be saved(its can be any folder would you like) 
+
+2. click button `decode` for decode file
+
+3. change everything you need(Editing instructions will be available later.)
+
+4. click button `encode`
+
+5. move the modified file to game folder 
+
+(editing file now so far only manually)

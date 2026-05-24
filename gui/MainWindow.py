@@ -5,7 +5,7 @@ from scripts.encoder import encode as ec
 
 app = ctk.CTk()
 app.geometry("600x350")
-app.title("panzerWar json editor")
+app.title("panzerWar json editor v0.0.2")
 
 
 button1 = ctk.CTkButton(app, text="decode", command=dc)
